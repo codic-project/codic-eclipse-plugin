@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   
+   <extension point="org.eclipse.ui.commands">
+      <category
+            name="%category.name"
+            id="jp.codic.cep.commands.category">
+      </category>
+      <command
+            name="%command.name"
+            categoryId="jp.codic.cep.commands.category"
+            id="jp.codic.cep.commands.quicklook">
+      </command>
+   </extension>
+   
+   <extension point="org.eclipse.ui.handlers">
+      <handler
+            commandId="jp.codic.cep.commands.quicklook"
+            class="jp.codic.plugins.eclipse.handlers.QuicklookHandler">
+      </handler>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus">
+      <!-- main menu -->
+      <menuContribution
+            locationURI="menu:edit?after=additions">
+       <menu label="%menu.label">
+        	<command commandId="jp.codic.cep.commands.quicklook"
+              id="jp.codic.cep.menus.quicklook.menu">
+        	</command>
+        </menu>
+      </menuContribution>
+      
+      <!-- Context menu 
+       See: https://wiki.eclipse.org/Menu_Contributions/TextEditor_viewerContribution-->
+       <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+            <menu label="%menu.label">
+         <command
+               commandId="jp.codic.cep.commands.quicklook"
+               id="jp.codic.cep.menus.quicklook.contextMenu">
+               
+               <!--
+               <with variable="activeEditor">
+                  <test
+                        forcePluginActivation="true"
+                        property="jp.codic.cep.isEditor" />
+               </with>
+                        -->
+                        <visibleWhen>
+                        <with variable="selection">
+          <instanceof value="org.eclipse.jface.text.ITextSelection"/>
+       </with>
+       </visibleWhen>
+               
+         </command>
+         </menu>
+      </menuContribution>
+
+   </extension>
+   <!-- commands and their bindings
+		NOTE:
+		M1 = CTRL/COMMAND 
+		M2 = SHIFT 
+		M3 = ALT 
+		M4 = Platform-specific fourth key
+	-->
+   <extension
+         point="org.eclipse.ui.bindings">
+         <key sequence="M1+M2+D"
+			commandId="jp.codic.cep.commands.quicklook"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			contextId="org.eclipse.ui.contexts.window"
+			/>
+   </extension>
+
+	<extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            class="jp.codic.plugins.eclipse.propertyPages.ProjectPropertyPage"
+            id="jp.codic.cep.property.page"
+            name="%page.name">
+            <enabledWhen>
+		<or>
+      		<instanceof value="org.eclipse.core.resources.IProject"></instanceof>
+      		<instanceof value="org.eclipse.jdt.core.IJavaProject"></instanceof>
+		</or>
+   		</enabledWhen>
+      </page>
+   </extension>
+   
+</plugin>
