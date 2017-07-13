@@ -2,7 +2,7 @@
 
 [codic](https://codic.jp/)のネーミング生成をEclipseから使うプラグインです。利用するには、codicのアカウントが必要です。
 
-##インストール
+## インストール
 1. Eclipseを起動し、メニューの"ヘルプ" >> "新規ソフトウェアのインストール" で、以下のアップデートサイトからインストールします。
 
   `http://codic-project.github.io/codic-eclipse-plugin/update/`
