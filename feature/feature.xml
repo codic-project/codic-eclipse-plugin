@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="jp.codic.cep.feature"
+      label="codic プラグイン"
+      version="1.0.1.qualifier"
+      provider-name="codic project team">
+
+   <description url="https://codic.jp/">
+      Codicのネーミング生成をEclipseから使うプラグインです。
+      
+      [change log]
+      1.0.1
+      - ケースオプションにハイフネーションを追加しました。
+   </description>
+
+   <copyright url="https://codic.jp/">
+      Copyright codic project team, all rights reserved.
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      codicのサービス利用規約を見てください。
+      https://codic.jp/terms
+   </license>
+
+   <plugin
+         id="jp.codic.cep.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
