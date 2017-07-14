@@ -4,6 +4,7 @@
 
 ## インストール
 1. Eclipseを起動し、メニューの"ヘルプ" >> "新規ソフトウェアのインストール" で、以下のアップデートサイトからインストールします。
+注意：更新サイトURLが新しくなっています。古いURLをレポジトリ登録されている方は変更してください。
 
   `http://codic-project.github.io/codic-eclipse-plugin/update`
   
